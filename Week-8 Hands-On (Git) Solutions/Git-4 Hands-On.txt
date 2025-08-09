@@ -1,0 +1,171 @@
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~ (main)
+$ git clone https://github.com/Sahithi-9615/PracticeRepo.git
+fatal: destination path 'PracticeRepo' already exists and is not an empty directory.
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~ (main)
+$ cd PracticeRepo
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~ (main)
+$ cd PracticeRepo
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/PracticeRepo (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/PracticeRepo (main)
+$ git add .
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/PracticeRepo (main)
+$ git commit -m "Saving current work"
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/PracticeRepo (main)
+$ git checkout -b GitWork
+Switched to a new branch 'GitWork'
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/PracticeRepo (GitWork)
+$ echo "<message>Hello from GitWork branch</message>"> hello.xml
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/PracticeRepo (GitWork)
+$ echo "<note>This is an update from GitWork branch </note>" >> hello.xml
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/PracticeRepo (GitWork)
+$ git status
+On branch GitWork
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   hello.xml
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/PracticeRepo (GitWork)
+$ git add hello.xml
+warning: in the working copy of 'hello.xml', LF will be replaced by CRLF the next time Git touches it
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/PracticeRepo (GitWork)
+$ git commit -m "Added and updated hello.xml in GitWork branch"
+[GitWork 0f2e19b] Added and updated hello.xml in GitWork branch
+ 1 file changed, 1 insertion(+), 5 deletions(-)
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/PracticeRepo (GitWork)
+$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/PracticeRepo (main)
+$ echo "<message>Hello from main branch</message>" > hello.xml
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/PracticeRepo (main)
+$ git add hello.xml
+warning: in the working copy of 'hello.xml', LF will be replaced by CRLF the next time Git touches it
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/PracticeRepo (main)
+$ git commit -m "Added hello.xml in master with different content"
+[main d445e2c] Added hello.xml in master with different content
+ 1 file changed, 5 deletions(-)
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/PracticeRepo (main)
+$ git log --oneline --graph --decorate --all
+* d445e2c (HEAD -> main) Added hello.xml in master with different content
+| * 0f2e19b (GitWork) Added and updated hello.xml in GitWork branch
+|/
+* 1cece38 (origin/main, origin/HEAD) Added merge backup files to .gitignore
+*   6c5e1ec Resolved merge conflict between main and GitWork
+|\
+| * 8b4703a Added and updated hello.xml in GitWork branch
+* | 9e1eedd Added hello.xml in main with different content
+|/
+* 7078c59 (origin/GitNewBranch, GitNewBranch) Added testfile.txt in GitNewBranch
+* 62342eb Initial commit
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/PracticeRepo (main)
+$ git diff main GitWork
+diff --git a/hello.xml b/hello.xml
+index dc8ea3d..a72cef5 100644
+--- a/hello.xml
++++ b/hello.xml
+@@ -1 +1,2 @@
+-<message>Hello from main branch</message>
++<message>Hello from GitWork branch</message>
++<note>This is an update from GitWork branch </note>
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/PracticeRepo (main)
+$ git mergetool
+No files need merging
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/PracticeRepo (main)
+$ git merge GitWork
+Auto-merging hello.xml
+CONFLICT (content): Merge conflict in hello.xml
+Automatic merge failed; fix conflicts and then commit the result.
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/PracticeRepo (main|MERGING)
+$ git add hello.xml
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/PracticeRepo (main|MERGING)
+$ git commit -m "Resolved merge conflict between main and Gitwork"
+[main ab5d065] Resolved merge conflict between main and Gitwork
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/PracticeRepo (main)
+$ echo "*.orig" >> .gitignore
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/PracticeRepo (main)
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 3 commits.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .gitignore
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/PracticeRepo (main)
+$ git add .gitignore
+warning: in the working copy of '.gitignore', LF will be replaced by CRLF the next time Git touches it
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/PracticeRepo (main)
+$ git commit -m "Added merge backup files to .gitignore"
+[main 53b00e9] Added merge backup files to .gitignore
+ 1 file changed, 1 insertion(+)
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/PracticeRepo (main)
+$ git branch
+  GitNewBranch
+  GitWork
+* main
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/PracticeRepo (main)
+$ git push origin main
+Enumerating objects: 15, done.
+Counting objects: 100% (15/15), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (10/10), done.
+Writing objects: 100% (12/12), 1.27 KiB | 1.27 MiB/s, done.
+Total 12 (delta 5), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (5/5), completed with 2 local objects.
+To https://github.com/Sahithi-9615/PracticeRepo.git
+   1cece38..53b00e9  main -> main
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/PracticeRepo (main)
+$ git push origin GitWork
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+remote:
+remote: Create a pull request for 'GitWork' on GitHub by visiting:
+remote:      https://github.com/Sahithi-9615/PracticeRepo/pull/new/GitWork
+remote:
+To https://github.com/Sahithi-9615/PracticeRepo.git
+ * [new branch]      GitWork -> GitWork
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/PracticeRepo (main)
+$

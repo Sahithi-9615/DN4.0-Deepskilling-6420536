@@ -1,0 +1,112 @@
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~
+$ git version
+git version 2.50.1.windows.1
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~
+$ git config --global user.name "Sahithi Karise"
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~
+$ git config --global user.email "ksahithi9615@gmail.com"
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~
+$ git config --global --list
+filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.process=git-lfs filter-process
+filter.lfs.required=true
+user.name=Sahithi Karise
+user.email=ksahithi9615@gmail.com
+core.editor=notepad++.exe -multiInst -nosession
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~
+$ notepad++
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~
+$ notepad++.exe bash -profile
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~
+$ git config core.editor "notepad++.exe -multiInst -nosession"
+fatal: not in a git directory
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~
+$ git config --global core.editor "notepad++.exe -multiInst -nosession"
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~
+$ git config --global -e
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~
+$ git init GitDemo
+Reinitialized existing Git repository in C:/Users/SAHITHI/GitDemo/.git/
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~
+$ cd GitDemo
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/GitDemo (main)
+$ ls -al
+total 32
+drwxr-xr-x 1 SAHITHI 197121 0 Aug  9 19:49 ./
+drwxr-xr-x 1 SAHITHI 197121 0 Aug  9 19:45 ../
+drwxr-xr-x 1 SAHITHI 197121 0 Aug  9 19:47 .git/
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/GitDemo (main)
+$ echo "Welcome to the Version Control">>welcome.txt
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/GitDemo (main)
+$ ls -al
+total 33
+drwxr-xr-x 1 SAHITHI 197121  0 Aug  9 19:50 ./
+drwxr-xr-x 1 SAHITHI 197121  0 Aug  9 19:45 ../
+drwxr-xr-x 1 SAHITHI 197121  0 Aug  9 19:47 .git/
+-rw-r--r-- 1 SAHITHI 197121 31 Aug  9 19:50 welcome.txt
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/GitDemo (main)
+$ git mv welcome.txt welcome.txt
+fatal: can not move directory into itself, source=welcome.txt, destination=welcome.txt
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/GitDemo (main)
+$ cat welcome.txt
+Welcome to the Version Control
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/GitDemo (main)
+$ git status
+On branch main
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   welcome.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/GitDemo (main)
+$ git add welcome.txt
+warning: in the working copy of 'welcome.txt', LF will be replaced by CRLF the next time Git touches it
+
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/GitDemo (main)
+$ git commit -m "Adding welcome.txt"
+[main 921ced6] Adding welcome.txt
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/GitDemo (main)
+$ git remote add origin https://gitlab.com/ksahithi9615-group/gitdemo.git
+error: remote origin already exists.
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/GitDemo (main)
+$ git pull origin main --allow-unrelated-histories
+From https://gitlab.com/ksahithi9615-group/GitDemo
+ * branch            main       -> FETCH_HEAD
+Merge made by the 'ort' strategy.
+ README.md | 93 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 93 insertions(+)
+ create mode 100644 README.md
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/GitDemo (main)
+$ git push -u origin main
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (8/8), 814 bytes | 814.00 KiB/s, done.
+Total 8 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://gitlab.com/ksahithi9615-group/GitDemo.git
+   f168fa9..41b449f  main -> main
+branch 'main' set up to track 'origin/main'.
+

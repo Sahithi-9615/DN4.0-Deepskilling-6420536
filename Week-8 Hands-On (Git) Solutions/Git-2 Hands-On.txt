@@ -1,0 +1,100 @@
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~
+$ git --version
+git version 2.50.1.windows.1
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~
+$ git config --global core.editor "'C:/Program Files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~
+$ cd GitDemo
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/GitDemo (main)
+$ git init
+Reinitialized existing Git repository in C:/Users/SAHITHI/GitDemo/.git/
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/GitDemo (main)
+$ echo "Sample log data" > debug.log
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/GitDemo (main)
+$ mkdir logs
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/GitDemo (main)
+$ echo "Another log data" > logs/app.log
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/GitDemo (main)
+$ notepad++ .gitignore
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/GitDemo (main)
+$ notepad++ .gitignore
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/GitDemo (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore
+        .gitignore.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/GitDemo (main)
+$ git add .gitignore
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/GitDemo (main)
+$ git commit -m "Add .gitignore to ignore log files and logs folder"
+[main 0bb24e5] Add .gitignore to ignore log files and logs folder
+ 1 file changed, 2 insertions(+)
+ create mode 100644 .gitignore
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/GitDemo (main)
+$ git push origin main
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 348 bytes | 348.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://gitlab.com/ksahithi9615-group/GitDemo.git
+   41b449f..0bb24e5  main -> main
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/GitDemo (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/GitDemo (main)
+$ echo "test" > test.log
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/GitDemo (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/GitDemo (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/GitDemo (main)
+$ echo "test" > test.log
+
+SAHITHI@LAPTOP-9UIS8SGM MINGW64 ~/GitDemo (main)
+$ git push origin main
+Everything up-to-date
